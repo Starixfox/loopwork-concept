@@ -1,6 +1,6 @@
-# Loopwork — concept demo
+# Agora — concept demo
 
-Static demo of a bilingual (EN / NL) marketing site for an AI workflow
+Static demo of a bilingual (EN / NL) marketing site for Agora, an AI workflow
 automation consultancy.
 
 - **Live**: https://starixfox.github.io/loopwork-concept/

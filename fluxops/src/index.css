@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  --color-flux-bg: #0a0a0a;
+  --color-flux-surface: rgba(255, 255, 255, 0.05);
+  --color-flux-border: rgba(255, 255, 255, 0.1);
+  --color-flux-accent: #00f0ff;
+  --color-flux-text: #ffffff;
+  --color-flux-muted: #a1a1aa;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  background-color: #0a0a0a;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #0a0a0a;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 240, 255, 0.25);
+  color: #ffffff;
+}
+
+/* Radial vignette mask so the video edges fade into black */
+.video-mask {
+  -webkit-mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    rgb(0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55) 70%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 85% 75% at 50% 45%,
+    rgb(0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.55) 70%,
+    transparent 100%
+  );
+}
+
+/* Pulsing status dot (Live Sync card) */
+@keyframes flux-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 240, 255, 0);
+  }
+}
+
+.pulse-dot {
+  animation: flux-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
